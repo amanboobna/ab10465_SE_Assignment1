@@ -25,7 +25,9 @@ SECRET_KEY = "django-insecure-pa5d-2k)z1^)q4w2y4qi_+6kt9y7#j9&c9u^g*k20)anzl8ek1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'django-env.eba-4mcgpqh7.us-west-2.elasticbeanstalk.com'
+]
 
 
 # Application definition
@@ -74,12 +76,20 @@ WSGI_APPLICATION = "ab10465_polls.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": str(BASE_DIR / "db.sqlite3"),  # Convert PosixPath to string
     }
 }
+
 
 
 # Password validation
